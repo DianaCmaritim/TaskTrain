@@ -108,3 +108,7 @@ Started GET "/users" for 127.0.0.1 at 2023-03-22 11:45:35 +0300
   
 ActionController::RoutingError (No route matches [GET] "/users"):
   
+Started GET "/me" for 127.0.0.1 at 2023-03-22 12:58:15 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/me"):
+  

@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   #user
   post '/users', to: 'users#register'
+  post '/users/login', to: "users#login"
+  delete '/users/logout', to: 'users#logout'
+  post 'user/login/check', to: 'users#check_login_status'
 end
