@@ -5,6 +5,8 @@ TaskTrain is a basic API built with Ruby rails.
 
 The application has been built with the MVC design pattern.
 
+This API has been deployed and is live on [https://tasktrain-api.onrender.com/]
+
 ## Pre-Requisites
 In order to use this repository you will need the following:
 
