@@ -962,3 +962,495 @@ Processing by TodosController#destroy as */*
 Completed 204 No Content in 18ms (Views: 0.2ms | ActiveRecord: 12.8ms | Allocations: 2793)
 
 
+Started POST "/todos" for ::1 at 2023-03-28 01:04:53 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"fishing", "description"=>"go fishiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiing", "user_id"=>nil, "todo"=>{"title"=>"fishing", "description"=>"go fishiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiing", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 181)
+
+
+Started GET "/todos" for ::1 at 2023-03-28 01:15:38 +0300
+Processing by TodosController#index as HTML
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | Allocations: 730)
+
+
+Started GET "/todos/" for ::1 at 2023-03-28 01:15:48 +0300
+Processing by TodosController#index as HTML
+Filter chain halted as :session_expired? rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | Allocations: 320)
+
+
+Started DELETE "/users/logout" for ::1 at 2023-03-28 01:16:19 +0300
+Processing by UsersController#logout as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 167)
+
+
+Started POST "/users/login" for ::1 at 2023-03-28 01:16:23 +0300
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"mamaz", "email"=>""}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f4567f60>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f4567f60>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'mamaz' OR email = '') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f4567f60>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+Completed 200 OK in 221ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 1451)
+
+
+Started POST "/todos/" for ::1 at 2023-03-28 01:16:38 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"fdghbjn", "description"=>"dfghjklytrdfghjkl;oiuytredsfghjkl;kjhgfcvbnm,jhgfghjk", "user_id"=>nil, "todo"=>{"title"=>"fdghbjn", "description"=>"dfghjklytrdfghjkl;oiuytredsfghjkl;kjhgfcvbnm,jhgfghjk", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 181)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-28 01:30:08 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"chopping", "description"=>"chopp mooooooooooooooooooooooooooooooooooooooooooooney", "todo"=>{"title"=>"chopping", "description"=>"chopp mooooooooooooooooooooooooooooooooooooooooooooney"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:122:in `user'
+[31mUnpermitted parameter: :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007f37f40f5310>, params: {"title"=>"chopping", "description"=>"chopp mooooooooooooooooooooooooooooooooooooooooooooney", "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"chopping", "description"=>"chopp mooooooooooooooooooooooooooooooooooooooooooooney"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:9:in `create'
+  [1m[36mTodo Create (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "description", "status", "priority", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "chopping"], ["description", "chopp mooooooooooooooooooooooooooooooooooooooooooooney"], ["status", 0], ["priority", 0], ["user_id", 8], ["created_at", "2023-03-27 22:30:08.077555"], ["updated_at", "2023-03-27 22:30:08.077555"]]
+  ↳ app/controllers/todos_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:9:in `create'
+Completed 201 Created in 11ms (Views: 0.3ms | ActiveRecord: 5.4ms | Allocations: 3050)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 01:36:26 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"fdghbjn", "description"=>"dfghjklytrdfghjkl;oiuytredsfghjkl;kjhgfcvbnm,jhgfghjk", "user_id"=>nil, "time"=>"2023-03-27T22:36:26.713Z", "todo"=>{"title"=>"fdghbjn", "description"=>"dfghjklytrdfghjkl;oiuytredsfghjkl;kjhgfcvbnm,jhgfghjk", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | Allocations: 181)
+
+
+Started DELETE "/users/logout" for ::1 at 2023-03-28 01:36:42 +0300
+Processing by UsersController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | Allocations: 167)
+
+
+Started POST "/users/login" for ::1 at 2023-03-28 01:36:48 +0300
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"mamaz", "email"=>""}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f8522e48>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f8522e48>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'mamaz' OR email = '') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f8522e48>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+Completed 200 OK in 212ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1450)
+
+
+Started DELETE "/users/logout" for ::1 at 2023-03-28 01:48:30 +0300
+Processing by UsersController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | Allocations: 167)
+
+
+Started POST "/users/login" for ::1 at 2023-03-28 01:48:37 +0300
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"mamaz", "email"=>""}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x000055a8833defb0>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x000055a8833defb0>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'mamaz' OR email = '') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x000055a8833defb0>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+Completed 200 OK in 220ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1451)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 01:49:00 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"asdff", "description"=>"asdfghjkjuytrewqasdfghjkoiuytrewasdfbnm", "user_id"=>nil, "time"=>"2023-03-27T22:49:00.536Z", "todo"=>{"title"=>"asdff", "description"=>"asdfghjkjuytrewqasdfghjkoiuytrewasdfbnm", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 181)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 02:03:26 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"asdff", "description"=>"asdfghjkjuytrewqasdfghjkoiuytrewasdfbnm", "user_id"=>nil, "time"=>"2023-03-27T23:03:26.747Z", "todo"=>{"title"=>"asdff", "description"=>"asdfghjkjuytrewqasdfghjkoiuytrewasdfbnm", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | Allocations: 182)
+
+
+Started DELETE "/users/logout" for ::1 at 2023-03-28 02:04:25 +0300
+Processing by UsersController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 167)
+
+
+Started POST "/users/login" for ::1 at 2023-03-28 02:04:31 +0300
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"mamaz", "email"=>""}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f8e62e68>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f8e62e68>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'mamaz' OR email = '') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f8e62e68>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+Completed 200 OK in 215ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1450)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 02:04:44 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"sdfgf", "description"=>"sdfgchuytdrsewqwefghjgfdsaqWA3E4SR5DTFYGUIHGFD", "user_id"=>nil, "time"=>"2023-03-27T23:04:44.545Z", "todo"=>{"title"=>"sdfgf", "description"=>"sdfgchuytdrsewqwefghjgfdsaqWA3E4SR5DTFYGUIHGFD", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 179)
+
+
+Started POST "/users/login" for ::1 at 2023-03-28 02:06:03 +0300
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"mamaz", "email"=>""}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f8dac988>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f8dac988>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'mamaz' OR email = '') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f8dac988>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+Completed 200 OK in 219ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1335)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 02:06:19 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"awsed", "description"=>"sdfghvjbkiuytrewqasdfghbnvcxz<aWERTYUJHGFDSA<zxcvbhg", "user_id"=>nil, "time"=>"2023-03-27T23:06:19.834Z", "todo"=>{"title"=>"awsed", "description"=>"sdfghvjbkiuytrewqasdfghbnvcxz<aWERTYUJHGFDSA<zxcvbhg", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 179)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 02:11:52 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"sssssd", "description"=>"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss", "user_id"=>nil, "time"=>"2023-03-27T23:11:52.765Z", "todo"=>{"title"=>"sssssd", "description"=>"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | Allocations: 179)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 08:37:19 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"sssssd", "description"=>"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss", "user_id"=>nil, "time"=>"2023-03-28T05:37:19.826Z", "todo"=>{"title"=>"sssssd", "description"=>"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | Allocations: 179)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 08:37:23 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"sssssd", "description"=>"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss", "user_id"=>nil, "time"=>"2023-03-28T05:37:23.986Z", "todo"=>{"title"=>"sssssd", "description"=>"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.3ms | Allocations: 179)
+
+
+Started POST "/users/login" for ::1 at 2023-03-28 08:49:30 +0300
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"mamaz", "email"=>""}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f8aa0690>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f8aa0690>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'mamaz' OR email = '') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f8aa0690>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+Completed 200 OK in 348ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1450)
+
+
+Started DELETE "/users/logout" for ::1 at 2023-03-28 08:49:34 +0300
+Processing by UsersController#logout as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 167)
+
+
+Started POST "/users/login" for ::1 at 2023-03-28 08:49:43 +0300
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"mamaz", "email"=>""}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f898bed0>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f898bed0>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'mamaz' OR email = '') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f37f898bed0>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+Completed 200 OK in 350ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 1338)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 08:50:24 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghgv", "description"=>"asdfghyjukiluytrfghjgfdfghjstyfdsdfghjgfdsfgjuiytredf", "user_id"=>nil, "time"=>"Tue Mar 28 2023 08:50:24 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghgv", "description"=>"asdfghyjukiluytrfghjgfdfghjstyfdsdfghjgfdsfgjuiytredf", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 180)
+
+
+Started DELETE "/users/logout" for ::1 at 2023-03-28 09:23:02 +0300
+Processing by UsersController#logout as HTML
+Completed 200 OK in 2ms (Views: 0.2ms | Allocations: 204)
+
+
+Started POST "/users" for ::1 at 2023-03-28 13:27:20 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#register as */*
+  Parameters: {"username"=>"mamacita", "email"=>"mama@cita.com", "password"=>"[FILTERED]", "user"=>{"username"=>"mamacita", "email"=>"mama@cita.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: register, request: #<ActionDispatch::Request:0x00007f438cb07d50>, params: {"username"=>"mamacita", "email"=>"mama@cita.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"register", "user"=>{"username"=>"mamacita", "email"=>"mama@cita.com"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mamacita"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `register'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mama@cita.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `register'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "mamacita"], ["email", "mama@cita.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-28 10:27:20.672619"], ["updated_at", "2023-03-28 10:27:20.672619"]]
+  ↳ app/controllers/users_controller.rb:9:in `register'
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "mamacita"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "mama@cita.com"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `register'
+Completed 201 Created in 413ms (Views: 0.6ms | ActiveRecord: 9.8ms | Allocations: 41079)
+
+
+Started POST "/users/login" for ::1 at 2023-03-28 13:27:24 +0300
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"mamaz", "email"=>""}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f4390ef69d0>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f4390ef69d0>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'mamaz' OR email = '') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f4390ef69d0>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+Completed 200 OK in 355ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1648)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:27:35 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:27:35 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 201)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:28:21 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:28:21 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 199)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:28:44 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:28:44 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 199)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:28:58 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:28:58 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 200)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:29:09 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:29:09 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 200)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:29:36 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:29:36 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 199)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:29:58 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:29:58 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 200)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:30:22 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:30:22 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 199)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:31:24 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:31:24 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 200)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:36:09 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:36:09 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"fdghjk", "description"=>"asdfghjkl;oiuytrewsadfghjklytdshjkliuytgrfdsfghj", "user_id"=>nil}}
+Filter chain halted as :session_expired? rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 216)
+
+
+Started DELETE "/users/logout" for ::1 at 2023-03-28 13:36:25 +0300
+Processing by UsersController#logout as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 201)
+
+
+Started POST "/users/login" for ::1 at 2023-03-28 13:36:29 +0300
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"mamaz", "email"=>""}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f43840ee8f8>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f43840ee8f8>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'mamaz' OR email = '') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f43840ee8f8>, params: {"username"=>"mamaz", "email"=>"", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"mamaz", "email"=>""}} }[0m
+Completed 200 OK in 221ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 2910)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:36:39 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:36:39 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Filter chain halted as :session_expired? rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 191)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:38:17 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:38:17 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Filter chain halted as :session_expired? rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 212)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:38:29 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:38:29 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 201)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:38:33 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:38:33 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 181)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:38:48 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:38:48 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 2101)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:39:15 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:39:15 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 201)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:39:25 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:39:25 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Filter chain halted as :session_expired? rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 212)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:39:43 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:39:43 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 199)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 13:49:45 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 13:49:45 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 199)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:03:46 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:03:46 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.3ms | Allocations: 179)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:11:00 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:11:00 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.3ms | Allocations: 179)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:15:47 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"14:15:47 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.4ms | Allocations: 179)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:16:34 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.4ms | Allocations: 179)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:16:37 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | Allocations: 179)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:17:03 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:17:03 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | Allocations: 179)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:20:27 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:20:27 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 274)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:23:13 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:23:13 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 220)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:23:47 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:23:47 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 218)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:24:40 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:24:40 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 218)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:25:20 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:25:20 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 218)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:25:24 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:25:24 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 198)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:25:58 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:25:58 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 200)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:26:41 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:26:41 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 218)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:34:46 +0300
+  
+NameError (undefined local variable or method `z' for TodosController:Class):
+  
+app/controllers/todos_controller.rb:28:in `<class:TodosController>'
+app/controllers/todos_controller.rb:2:in `<main>'
+Started POST "/todos" for ::1 at 2023-03-28 14:35:33 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:35:33 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 200)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:35:36 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:35:36 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 179)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:40:18 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:40:18 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 200)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:40:52 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:40:52 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 200)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:41:06 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:41:06 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 199)
+
+
+Started POST "/todos" for ::1 at 2023-03-28 14:41:25 +0300
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil, "time"=>"Tue Mar 28 2023 14:41:25 GMT+0300 (East Africa Time)", "todo"=>{"title"=>"dfghj", "description"=>"sdfghjkloiuytrdsfghjkliuytrdsxcvbnm,.lkiuytgfdfghmn,", "user_id"=>nil}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 199)
+
+

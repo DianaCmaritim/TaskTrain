@@ -18,7 +18,7 @@ class ApplicationController < ActionController::API
 
         begin
         JWT.encode(payload, ENV['task_cargo_key'], 'HS256')
-        rescue  JWT::EncodeError => e 
+        rescue  JWT::EncodeError => e
             app_response(message: "failed", status: 400, data: {info: "Something went wrong. PLease try againkjh\\"})
 
 
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::API
     def decode(token)
         begin
         JWT.decode(token, ENV['task_cargo_key'], true, {algorith: 'HS256'})
-        rescue JWT::DecodeError => e 
+        rescue JWT::DecodeError => e
             app_response(message: "failed", status: 401, data: {info: "Session expired. Please login again"})
         end
 
@@ -41,7 +41,7 @@ class ApplicationController < ActionController::API
 
     def verify_auth
         auth_headers = request.headers['Authorization']
-        if !auth_headers 
+        if !auth_headers
             app_response(message: "failed", status: 401, data: {info: "Your request is not authorized"})
         else
         token = auth_headers.split(' ')[1]
@@ -66,9 +66,9 @@ class ApplicationController < ActionController::API
 
 
     def app_response(message:'success', status: 200, data: nil)
-        render json: { 
-            message: message, 
-            data: data}, status: status 
+        render json: {
+            message: message,
+            data: data}, status: status
     end
 
     # store user id in session
@@ -85,7 +85,7 @@ class ApplicationController < ActionController::API
         session[:expiry]= Time.now
     end
 
-    
+
 
     # save user's id
     def save_user_id
@@ -93,32 +93,32 @@ class ApplicationController < ActionController::API
     end
 
     #  get user session
-    
-    def user_session 
+
+    def user_session
         User.find(session[:uid].to_i)
     end
 
 
     # check for expiry of ourr session
 
-    def session_expired? 
-        session[:expiry] ||= Time.now
+    def session_expired?
+        session[:expiry] ||= Time.now.to_i
         time_diff = (Time.parse(session[:expiry]) - Time.now).to_i
-        
+
         unless time_diff > 0
             app_response(message: "failed", status: 401, data: {info: "Session expired. Please login again"})
         end
-   
+
     end
 
 
-    # def uid 
+    # def uid
     #     session[:uid].to_i
     # end
 
     # find user
 
-    def user 
+    def user
         User.find(session[:uid].to_i)
     end
 

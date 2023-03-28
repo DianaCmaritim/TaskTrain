@@ -4,7 +4,7 @@ class TodosController < ApplicationController
     rescue_from StandardError, with: :standard_error
 
 
-    def create 
+    def create
 
        todo = user.todos.create(todo_params)
        if todo.valid?
@@ -15,12 +15,12 @@ class TodosController < ApplicationController
     end
 
 
-    def update 
+    def update
 
         todo = user.todos.find(params[:id]).update(todo_params)
         if todo
             app_response(data: {info: 'updated todo successfully'})
-        else  
+        else
             app_response(data: {info: 'not updated'}, message: "failed", status: :unprocessable_entity )
         end
 
@@ -28,7 +28,7 @@ class TodosController < ApplicationController
 
     def destroy
 
-        user.todos.find(params[:id]).destroy 
+        user.todos.find(params[:id]).destroy
         app_response(message: 'success', data: {info: ""}, status: 204)
 
 
@@ -43,12 +43,12 @@ class TodosController < ApplicationController
 
     end
 
-    
 
-    private 
 
-    def todo_params 
-        params.permit(:title, :description, :status, :priority) 
+    private
+
+    def todo_params
+        params.permit(:title, :description, :status, :priority)
     end
 
 
